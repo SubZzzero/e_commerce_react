@@ -28,15 +28,15 @@ export const cartSlice = createSlice({
                 item.count++;
             }
         },
-        decreaseCountCount: (state, action) => {
-            const item = state.cart.find(i => i.id === action.payload.id && count > 1)
+        decreaseCount: (state, action) => {
+            const item = state.cart.find(i => i.id === action.payload.id && i.count > 1)
             if (item) {
                 item.count--;
             }
         },
 
         toggleCart: (state) => {
-            state.isCartOpen = !state.isCartOpen
+            state.isCartOpen = !state.isCartOpen;
         }
     },
 });

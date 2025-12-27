@@ -5,7 +5,7 @@ import Home from "./pages/home/Home";
 import ItemDetails from "./pages/itemDetails/ItemDetails";
 import Checkout from "./pages/checkout/Checkout";
 import Confirmation from "./pages/checkout/Confirmation";
-
+import CartMenu from "./pages/global/CartMenu";
 
 function App() {
   const ScrollToTop = () => {
@@ -22,6 +22,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
+
       <ScrollToTop />
 
       <Routes>
@@ -33,6 +34,7 @@ function App() {
 
 
       </Routes>
+      <CartMenu></CartMenu>
     </BrowserRouter >
   )
 

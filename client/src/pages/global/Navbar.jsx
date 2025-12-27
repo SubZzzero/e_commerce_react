@@ -21,7 +21,7 @@ const Navbar = () => {
     return (<Box display="flex"
         alignItems="center"
         width="100%"
-        height="60px"
+        height="80px"
         backgroundColor="rgba(255, 255, 255, 0.95)"
         color="black"
         position="fixed"
@@ -39,6 +39,7 @@ const Navbar = () => {
                     display: "flex",
                     alignItems: "center",
                     gap: "0 15px",
+                    zIndex: "2",
 
                     "& .MuiIconButton-root": {
                         color: shades.primary[900],

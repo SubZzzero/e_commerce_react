@@ -7,6 +7,9 @@ import Checkout from "./pages/checkout/Checkout";
 import Confirmation from "./pages/checkout/Confirmation";
 import CartMenu from "./pages/global/CartMenu";
 
+
+
+
 function App() {
   const ScrollToTop = () => {
     const { pathname } = useLocation()
@@ -24,7 +27,6 @@ function App() {
       <Navbar />
 
       <ScrollToTop />
-
       <Routes>
 
         <Route path="/" element={<Home />} />

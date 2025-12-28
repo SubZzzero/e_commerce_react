@@ -31,8 +31,6 @@ const CartMenu = () => {
         0
     );
 
-    console.log("IS OPEN:", isCartOpen);
-
     return (
 
 
@@ -135,16 +133,18 @@ const CartMenu = () => {
                                     </Box>
                                 </FlexBox>
 
-                                <Divider />
+
                             </Box>
+
                         ))}
                     </Box>
-
+                    {/* <Divider /> */}
                     {/* FOOTER */}
                     <Box mt="20px">
                         <FlexBox mb="20px">
                             <Typography fontWeight="bold">SUBTOTAL</Typography>
                             <Typography fontWeight="bold">${totalPrice}</Typography>
+
                         </FlexBox>
 
                         <Button
@@ -162,10 +162,15 @@ const CartMenu = () => {
                         >
                             CHECKOUT
                         </Button>
+
                     </Box>
+
                 </Box>
+
             </Box>
+
         </Box>
+
     );
 };
 

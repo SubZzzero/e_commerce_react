@@ -39,7 +39,7 @@ const Navbar = () => {
         >
             <Box display={"flex"} justifyContent={"space-between"} alignItems={"center"} margin={"0 auto"} width={"80%"}  >
 
-                <Box onClick={() => navigate("/")} component="img" src={Logo} alt="Company Logo" sx={{ height: 40, marginRight: 2, cursor: "pointer" }} />
+                <Box onClick={() => navigate("/")} component="img" src={Logo} alt="Company Logo" sx={{ height: 60, marginRight: 2, cursor: "pointer" }} />
 
                 <Box
                     sx={{

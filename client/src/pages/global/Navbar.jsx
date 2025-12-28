@@ -28,7 +28,7 @@ const Navbar = () => {
         <Box display="flex"
             alignItems="center"
             width="100%"
-            height="80px"
+            height="60px"
             backgroundColor="rgba(255, 255, 255, 0.95)"
             color="black"
             position="fixed"

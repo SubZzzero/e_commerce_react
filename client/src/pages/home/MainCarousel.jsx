@@ -66,7 +66,7 @@ const MainCarousel = () => {
                             alt={`main-${images}`}
                             style={{
                                 width: "100%",
-                                height: "921px",
+                                height: "100vh",
                                 objectFit: "cover",
                                 objectPosition: "center top",
                                 backgroundAttachment: "fixed",
@@ -87,8 +87,8 @@ const MainCarousel = () => {
                             maxWidth={inNonMobile ? undefined : "240px"}
                             sx={{ cursor: "default" }}
                         >
-                            <Typography fontSize={inNonMobile ? "60px" : "32px"} color="white">TRENDY FASHION</Typography>
-                            <Typography fontSize={inNonMobile ? "38px" : "20px"} color="white" sx={{ textAlign: "left" }}>COLLECTION</Typography>
+                            <Typography fontSize={inNonMobile ? "120px" : "32px"} color="white">TRENDY FASHION</Typography>
+                            <Typography fontSize={inNonMobile ? "85px" : "20px"} color="white" sx={{ textAlign: "left" }}>COLLECTION</Typography>
 
                         </Box>
 

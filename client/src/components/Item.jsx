@@ -23,6 +23,7 @@ const Item = ({ item, width }) => {
                 position="relative"
                 onMouseOver={() => setIsHovered(true)}
                 onMouseOut={() => setIsHovered(false)}
+
             >
                 <img
                     alt={name}
@@ -34,7 +35,7 @@ const Item = ({ item, width }) => {
                             : ""
                     }
                     onClick={() => navigate(`/item/${item.id}`)}
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: "pointer", display: "block" }}
                 />
                 <Box
                     display={isHovered ? "block" : "none"}
@@ -50,6 +51,7 @@ const Item = ({ item, width }) => {
                             alignItems="center"
                             backgroundColor={shades.neutral[100]}
                             borderRadius="3px"
+
                         >
                             <IconButton onClick={() => setCount(Math.max(count - 1, 1))}>
                                 <RemoveCircleOutlineIcon />
@@ -71,7 +73,7 @@ const Item = ({ item, width }) => {
                 </Box>
             </Box>
 
-            <Box mt="3px">
+            <Box border={"1px solid grey"} borderTop={"none"} padding={"5px"}>
                 <Typography variant="subtitle2" color={shades.neutral.dark}>
                     {category
                         .replace(/([A-Z])/g, " $1")

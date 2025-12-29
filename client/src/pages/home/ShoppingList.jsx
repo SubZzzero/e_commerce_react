@@ -59,7 +59,7 @@ const ShoppingList = () => {
                 indicatorColor={{ sx: { display: isNonMobile ? "secondary" : "none" } }}
                 centered
                 sx={{
-                    m: "25px",
+                    m: "35px",
                     "& .MuiTabs-flexContainer": {
                         flexWrap: "wrap",
                     },
@@ -70,6 +70,46 @@ const ShoppingList = () => {
                 <Tab sx={{ fontSize: "18px", fontWeight: "bold" }} label="Best Sellers" value={"bestSellers"}></Tab>
                 <Tab sx={{ fontSize: "18px", fontWeight: "bold" }} label="Top Rated" value={"topRated"}></Tab>
             </Tabs>
+
+
+
+            <Box
+                display="grid"
+                gridTemplateColumns="repeat(5, 300px)"
+                justifyContent="space-around"
+                rowGap="10px"
+                columnGap="1.33%"
+                margin="0 auto"
+            >
+
+                {/* CHANGING CATEGORY */}
+                {value === "all" &&
+                    items.map((item) => (
+                        <Item item={item} key={item.id} />
+                    ))
+                }
+
+                {value === "newArrivals" &&
+                    newArrivalsItems.map((item) => (
+                        <Item item={item} key={item.id} />
+                    ))
+                }
+
+                {value === "bestSellers" &&
+                    bestSeelrsItems.map((item) => (
+                        <Item item={item} key={item.id} />
+                    ))
+                }
+
+                {value === "topRated" &&
+                    topRatedItems.map((item) => (
+                        <Item item={item} key={item.id} />
+                    ))
+                }
+
+
+
+            </Box>
         </Box >
     )
 }

@@ -6,7 +6,7 @@ import ItemDetails from "./pages/itemDetails/ItemDetails";
 import Checkout from "./pages/checkout/Checkout";
 import Confirmation from "./pages/checkout/Confirmation";
 import CartMenu from "./pages/global/CartMenu";
-
+import Footer from "./pages/global/Footer";
 
 
 
@@ -38,6 +38,7 @@ function App() {
       </Routes>
       <CartMenu></CartMenu>
       <Navbar />
+      <Footer></Footer>
     </BrowserRouter >
   )
 

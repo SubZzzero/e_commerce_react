@@ -24,7 +24,6 @@ const ShoppingList = () => {
         );
         const itemsJson = await items.json();
         dispatch(setItems(itemsJson.data))
-        console.log(itemsJson.data[0])
     }
 
     useEffect(() => {
@@ -47,9 +46,13 @@ const ShoppingList = () => {
 
 
     return (
-        <Box width={"80%"} margin={"50px auto"}>
+        <Box width={"80%"} margin={"55px auto"}>
 
-            <Typography variant="h1" textAlign={"center"} sx={{ cursor: "default", marginBottom: "20px" }}>Our Products</Typography>
+            <Typography
+                variant="h1"
+                textAlign={"center"}
+                paddingTop={"15px"}
+                sx={{ cursor: "default" }}>Our Products</Typography>
 
             <Tabs
 
@@ -75,10 +78,10 @@ const ShoppingList = () => {
 
             <Box
                 display="grid"
-                gridTemplateColumns="repeat(5, 300px)"
+                gridTemplateColumns="repeat(auto-fit, 300px)"
                 justifyContent="space-around"
-                rowGap="10px"
-                columnGap="1.33%"
+                rowGap="35px"
+                columnGap="5.33%"
                 margin="0 auto"
             >
 

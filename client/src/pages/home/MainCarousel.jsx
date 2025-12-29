@@ -5,7 +5,7 @@ import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { shades } from "../../theme";
 
-//Impor all images frmo assets folder
+//Impor all images from assets folder
 const heroImages = Object.values(
     import.meta.glob("../../assets/img_carousel/*.{png,jpg,jpeg,svg}", {
         eager: true,
@@ -16,90 +16,100 @@ const heroImages = Object.values(
 
 const MainCarousel = () => {
 
-    const inNonMobile = useMediaQuery("(min-width: 600px)")
+    const inNonMobile = useMediaQuery("(min-width: 1200px)")
     return (
 
-        <Carousel
-            infiniteLoop={true}
-            showThumbs={false}
-            showIndicators={false}
-            showStatus={false}
-            renderArrowPrev={(onClickHandler, hasPrev, label) => (
-                <IconButton
-                    onClick={onClickHandler}
-                    sx={{
-                        position: "absolute",
-                        top: "50%",
-                        left: "0",
-                        color: "white",
-                        padding: "5px",
-                        zIndex: "10",
-                    }}
-                >
-                    <NavigateBeforeIcon sx={{ fontSize: 60 }} />
-                </IconButton>
-            )}
-            renderArrowNext={(onClickHandler, hasNext, label) => (
-                <IconButton
-                    onClick={onClickHandler}
-                    sx={{
-                        position: "absolute",
-                        top: "50%",
-                        right: "0",
-                        color: "white",
-                        padding: "5px",
-                        zIndex: "10",
-                    }}
-                >
-                    <NavigateNextIcon sx={{ fontSize: 60 }} />
-                </IconButton>
-            )}
-        >
+        <>
 
-            {heroImages.map((images) => {
-                return (
-
-
-                    <Box key={images} >
-                        <img
-                            src={images}
-                            alt={`main-${images}`}
-                            style={{
-                                width: "100%",
-                                height: "100vh",
-                                objectFit: "cover",
-                                objectPosition: "center top",
-                                backgroundAttachment: "fixed",
+            {inNonMobile ? (
+                <Carousel
+                    infiniteLoop={true}
+                    showThumbs={false}
+                    showIndicators={false}
+                    showStatus={false}
+                    renderArrowPrev={(onClickHandler, hasPrev, label) => (
+                        <IconButton
+                            onClick={onClickHandler}
+                            sx={{
+                                position: "absolute",
+                                top: "50%",
+                                left: "0",
+                                color: "white",
+                                padding: "5px",
+                                zIndex: "10",
                             }}
-                        />
-
-                        <Box
-                            color="white"
-                            padding="20px"
-                            borderRadius="1px"
-                            textAlign="left"
-                            backgroundColor="rgb(0, 0, 0, 0.4)"
-                            position="absolute"
-                            top="35%"
-                            left={inNonMobile ? "10%" : "0"}
-                            right={inNonMobile ? undefined : "0"}
-                            margin={inNonMobile ? undefined : "0 auto"}
-                            maxWidth={inNonMobile ? undefined : "240px"}
-                            sx={{ cursor: "default" }}
                         >
-                            <Typography fontSize={inNonMobile ? "120px" : "32px"} color="white">TRENDY FASHION</Typography>
-                            <Typography fontSize={inNonMobile ? "85px" : "20px"} color="white" sx={{ textAlign: "left" }}>COLLECTION</Typography>
+                            <NavigateBeforeIcon sx={{ fontSize: 60 }} />
+                        </IconButton>
+                    )}
+                    renderArrowNext={(onClickHandler, hasNext, label) => (
+                        <IconButton
+                            onClick={onClickHandler}
+                            sx={{
+                                position: "absolute",
+                                top: "50%",
+                                right: "0",
+                                color: "white",
+                                padding: "5px",
+                                zIndex: "10",
+                            }}
+                        >
+                            <NavigateNextIcon sx={{ fontSize: 60 }} />
+                        </IconButton>
+                    )}
+                >
 
-                        </Box>
+                    {heroImages.map((images) => {
+                        return (
 
-                    </Box>
+
+                            <Box key={images} >
+                                <img
+                                    src={images}
+                                    alt={`main-${images}`}
+                                    style={{
+                                        width: "100%",
+                                        height: "100vh",
+                                        objectFit: "cover",
+                                        objectPosition: "center top",
+                                        backgroundAttachment: "fixed",
+                                    }}
+                                />
+
+                                <Box
+                                    color="white"
+                                    padding="20px"
+                                    borderRadius="1px"
+                                    textAlign="left"
+                                    backgroundColor="rgb(0, 0, 0, 0.4)"
+                                    position="absolute"
+                                    top="35%"
+                                    left={inNonMobile ? "10%" : "0"}
+                                    right={inNonMobile ? undefined : "0"}
+                                    margin={inNonMobile ? undefined : "0 auto"}
+                                    maxWidth={inNonMobile ? undefined : "240px"}
+                                    sx={{ cursor: "default" }}
+                                >
+                                    <Typography fontSize={inNonMobile ? "120px" : "32px"} color="white">TRENDY FASHION</Typography>
+                                    <Typography fontSize={inNonMobile ? "85px" : "20px"} color="white" sx={{ textAlign: "left" }}>COLLECTION</Typography>
+
+                                </Box>
+
+                            </Box>
 
 
-                )
+                        )
 
-            })}
+                    })}
 
-        </Carousel>
+                </Carousel>
+
+
+
+            ) : null}
+
+
+        </>
     )
 }
 

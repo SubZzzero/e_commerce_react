@@ -77,24 +77,107 @@ const MainCarousel = () => {
                                 />
 
                                 <Box
-                                    color="white"
-                                    padding="20px"
-                                    borderRadius="1px"
-                                    textAlign="left"
-                                    backgroundColor="rgb(0, 0, 0, 0.4)"
                                     position="absolute"
                                     top="35%"
-                                    left={inNonMobile ? "10%" : "0"}
-                                    right={inNonMobile ? undefined : "0"}
-                                    margin={inNonMobile ? undefined : "0 auto"}
-                                    maxWidth={inNonMobile ? undefined : "240px"}
+                                    left="10%"
+                                    padding="24px"
+                                    backgroundColor="rgba(0, 0, 0, 0.4)"
+                                    color="white"
                                     sx={{ cursor: "default" }}
                                 >
-                                    <Typography fontSize={inNonMobile ? "120px" : "32px"} color="white">TRENDY FASHION</Typography>
-                                    <Typography fontSize={inNonMobile ? "85px" : "20px"} color="white" sx={{ textAlign: "left" }}>COLLECTION</Typography>
+                                    <Box
+                                        display="inline-block"
+                                        textAlign="right"
+                                    >
+                                        <Typography
+                                            fontSize="120px"
+                                            fontWeight={600}
+                                            lineHeight="1"
+                                        >
+                                            TRENDY FASHION
+                                        </Typography>
 
+                                        <Typography
+                                            fontSize="85px"
+                                            fontWeight={300}
+                                            lineHeight="1"
+                                            position={"relative"}
+                                            right={"4px"}
+                                        >
+                                            COLLECTION
+                                        </Typography>
+                                    </Box>
+
+
+                                    <Box
+                                        mt="30px"
+                                        mb="20px"
+                                        width="70px"
+                                        height="1px"
+                                        backgroundColor="white"
+                                    />
+
+
+                                    <Typography
+                                        fontSize="16px"
+                                        lineHeight="1.6"
+                                        maxWidth="360px"
+                                    >
+                                        Modern clothing focused on simplicity,
+                                        comfort and everyday wear.
+                                    </Typography>
                                 </Box>
 
+
+                                <Box
+                                    position="absolute"
+                                    top="50%"
+                                    right="60px"
+                                    sx={{
+                                        width: "1px",
+                                        height: "120px",
+                                        backgroundColor: "white",
+                                        opacity: 0.6,
+                                        transform: "translateY(-50%)",
+                                    }}
+                                />
+
+
+                                <Box
+                                    position="absolute"
+                                    top="50%"
+                                    right="30px"
+                                    sx={{
+                                        transform: "translateY(-50%) rotate(90deg)",
+                                        transformOrigin: "center",
+                                        cursor: "default",
+                                    }}
+                                >
+                                    <Typography
+                                        fontSize="12px"
+                                        letterSpacing="4px"
+                                        color="white"
+                                    >
+                                        EST. 2025
+                                    </Typography>
+                                </Box>
+
+
+                                <Box
+                                    position="absolute"
+                                    bottom="40px"
+                                    left="10%"
+                                    color="white"
+                                    sx={{ cursor: "default" }}
+                                >
+                                    <Typography
+                                        fontSize="12px"
+                                        letterSpacing="2px"
+                                        opacity={0.7}
+                                    >
+                                        Designed for modern lifestyle
+                                    </Typography>
+                                </Box>
                             </Box>
 
 

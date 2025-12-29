@@ -12,17 +12,11 @@ const Item = ({ item, width }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [count, setCount] = useState(1);
-    const { category, price, image, name } = item.attributes;
+    const { category, price, image, name } = item;
     const [isHovered, setIsHovered] = useState(false);
-    const {
-        data: {
-            attributes: {
-                formats: {
-                    medium: { url },
-                },
-            },
-        },
-    } = image;
+
+
+
     return (
         <Box width={width}>
             <Box
@@ -31,10 +25,14 @@ const Item = ({ item, width }) => {
                 onMouseOut={() => setIsHovered(false)}
             >
                 <img
-                    alt={item.name}
+                    alt={name}
                     width="300px"
                     height="400px"
-                    src={`http://localhost:1337${url}`}
+                    src={
+                        image?.formats?.medium?.url
+                            ? `http://localhost:1337${image.formats.medium.url}`
+                            : ""
+                    }
                     onClick={() => navigate(`/item/${item.id}`)}
                     style={{ cursor: "pointer" }}
                 />
@@ -54,7 +52,7 @@ const Item = ({ item, width }) => {
                             borderRadius="3px"
                         >
                             <IconButton onClick={() => setCount(Math.max(count - 1, 1))}>
-                                <RemoveIcon />
+                                <RemoveCircleOutlineIcon />
                             </IconButton>
                             <Typography color={shades.primary[300]}>{count}</Typography>
                             <IconButton onClick={() => setCount(count + 1)}>
@@ -74,7 +72,7 @@ const Item = ({ item, width }) => {
             </Box>
 
             <Box mt="3px">
-                <Typography variant="subtitle2" color={neutral.dark}>
+                <Typography variant="subtitle2" color={shades.neutral.dark}>
                     {category
                         .replace(/([A-Z])/g, " $1")
                         .replace(/^./, (str) => str.toUpperCase())}

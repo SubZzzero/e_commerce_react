@@ -27,7 +27,7 @@ const CartMenu = () => {
     const isCartOpen = useSelector((state) => state.cart.isCartOpen);
 
     const totalPrice = cart.reduce(
-        (total, item) => total + item.count * item.attributes.price,
+        (total, item) => total + item.count * item.price,
         0
     );
 
@@ -69,15 +69,15 @@ const CartMenu = () => {
                     {/* CART ITEMS */}
                     <Box>
                         {cart.map((item) => (
-                            <Box key={`${item.id}-${item.attributes.name}`}>
+                            <Box key={`${item.id}-${item.name}`}>
                                 <FlexBox padding="15px 0" gap="15px">
                                     {/* IMAGE */}
                                     <Box flex="0 0 123px">
                                         <img
-                                            alt={item.attributes.name}
+                                            alt={item.name}
                                             width="123"
                                             height="164"
-                                            src={`http://localhost:1337${item.attributes.image.data.attributes.formats.medium.url}`}
+                                            src={`http://localhost:1337${item.image?.formats?.medium?.url}`}
                                         />
                                     </Box>
 
@@ -85,7 +85,7 @@ const CartMenu = () => {
                                     <Box flex="1">
                                         <FlexBox mb="5px">
                                             <Typography fontWeight="bold">
-                                                {item.attributes.name}
+                                                {item.name}
                                             </Typography>
                                             <IconButton
                                                 onClick={() =>
@@ -97,7 +97,7 @@ const CartMenu = () => {
                                         </FlexBox>
 
                                         <Typography mb="10px">
-                                            {item.attributes.shortDescription}
+                                            {item.shortDescription}
                                         </Typography>
 
                                         <FlexBox>
@@ -127,7 +127,7 @@ const CartMenu = () => {
                                             </Box>
 
                                             <Typography fontWeight="bold">
-                                                ${item.attributes.price}
+                                                ${item.price}
                                             </Typography>
                                         </FlexBox>
                                     </Box>

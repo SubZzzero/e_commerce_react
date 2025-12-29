@@ -37,6 +37,7 @@ function App() {
 
       </Routes>
       <CartMenu></CartMenu>
+      <Navbar />
     </BrowserRouter >
   )
 

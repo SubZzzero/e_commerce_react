@@ -18,6 +18,7 @@ const MainCarousel = () => {
 
     const inNonMobile = useMediaQuery("(min-width: 600px)")
     return (
+
         <Carousel
             infiniteLoop={true}
             showThumbs={false}
@@ -57,6 +58,8 @@ const MainCarousel = () => {
 
             {heroImages.map((images) => {
                 return (
+
+
                     <Box key={images} >
                         <img
                             src={images}
@@ -84,8 +87,8 @@ const MainCarousel = () => {
                             maxWidth={inNonMobile ? undefined : "240px"}
                             sx={{ cursor: "default" }}
                         >
-                            <Typography fontSize={"60px"} color="white">TRENDY FASHION</Typography>
-                            <Typography fontSize={"38px"} color="white" sx={{ textAlign: "center" }}>COLLECTION</Typography>
+                            <Typography fontSize={inNonMobile ? "60px" : "32px"} color="white">TRENDY FASHION</Typography>
+                            <Typography fontSize={inNonMobile ? "38px" : "20px"} color="white" sx={{ textAlign: "left" }}>COLLECTION</Typography>
 
                         </Box>
 

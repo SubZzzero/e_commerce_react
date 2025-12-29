@@ -56,8 +56,14 @@ const ShoppingList = () => {
                 onChange={handleCgange}
                 value={value}
                 textColor="secondary"
-                indicatorColor="secondary"
+                indicatorColor={{ sx: { display: isNonMobile ? "secondary" : "none" } }}
                 centered
+                sx={{
+                    m: "25px",
+                    "& .MuiTabs-flexContainer": {
+                        flexWrap: "wrap",
+                    },
+                }}
             >
                 <Tab sx={{ fontSize: "18px", fontWeight: "bold" }} label="All" value={"all"} ></Tab>
                 <Tab sx={{ fontSize: "18px", fontWeight: "bold" }} label="New Arrivals" value={"newArrivals"}></Tab>

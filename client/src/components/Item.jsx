@@ -34,7 +34,7 @@ const Item = ({ item, width }) => {
                             ? `http://localhost:1337${image.formats.medium.url}`
                             : ""
                     }
-                    onClick={() => navigate(`/item/${item.id}`)}
+                    onClick={() => navigate(`/item/${item.documentId}`)}
                     style={{ cursor: "pointer", display: "block" }}
                 />
                 <Box

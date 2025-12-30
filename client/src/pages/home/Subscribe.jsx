@@ -5,7 +5,6 @@ import { useState } from "react";
 const Subscribe = () => {
     const inNonMobile = useMediaQuery("(min-width: 1200px)")
     const [email, setEmail] = useState("")
-    console.log(email)
 
     return (
         <Box width={"100%"} margin={"75px auto"} textAlign={"center"}>

@@ -110,8 +110,6 @@ const ShoppingList = () => {
                     ))
                 }
 
-
-
             </Box>
         </Box >
     )

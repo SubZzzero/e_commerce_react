@@ -207,7 +207,7 @@ const ItemDetails = () => {
                 >
                     {items
                         .filter((i) => i.documentId !== item.documentId)
-                        .slice(0, 6)
+                        .slice(0, 4)
                         .map((i) => (
                             <Item key={i.documentId} item={i} />
                         ))}

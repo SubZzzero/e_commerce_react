@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Tabs, Tab, Box, Typography, useMediaQuery } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { setItems } from "../../state/slices/cartSlice";
+import { STATIC_ITEMS } from "../../data/items";
 import Item from "../../components/Item"
 
 
@@ -9,7 +10,7 @@ import Item from "../../components/Item"
 const ShoppingList = () => {
     const dispatch = useDispatch();
     const [value, setValue] = useState("all")
-    const items = useSelector((state) => state.cart.items)
+    const items = useSelector((state) => state.cart.items) || []
 
     const isNonMobile = useMediaQuery("(max-width:600px)")
 
@@ -18,12 +19,17 @@ const ShoppingList = () => {
     }
 
     async function getItems() {
-        const items = await fetch(
-            "http://localhost:1337/api/items?populate=image",
-            { method: "GET" }
-        );
-        const itemsJson = await items.json();
-        dispatch(setItems(itemsJson.data))
+        try {
+            const res = await fetch(
+                "http://localhost:1337/api/items?populate=image"
+            );
+            if (!res.ok) throw new Error();
+            const json = await res.json();
+            dispatch(setItems(json.data));
+        } catch (error) {
+            alert("Using static items");
+            dispatch(setItems(STATIC_ITEMS));
+        }
     }
 
     useEffect(() => {

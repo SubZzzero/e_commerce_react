@@ -15,6 +15,10 @@ const Item = ({ item, width }) => {
     const { category, price, image, name } = item;
     const [isHovered, setIsHovered] = useState(false);
 
+    const imageUrl =
+        item.image?.formats?.medium?.url
+            ? `http://localhost:1337${item.image.formats.medium.url}`
+            : item.image?.url;
 
 
     return (
@@ -26,14 +30,10 @@ const Item = ({ item, width }) => {
 
             >
                 <img
-                    alt={name}
+                    alt={item.name}
                     width="300px"
                     height="400px"
-                    src={
-                        image?.formats?.medium?.url
-                            ? `http://localhost:1337${image.formats.medium.url}`
-                            : ""
-                    }
+                    src={imageUrl}
                     onClick={() => navigate(`/item/${item.documentId}`)}
                     style={{ cursor: "pointer", display: "block" }}
                 />

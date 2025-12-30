@@ -31,10 +31,23 @@ const CartMenu = () => {
         0
     );
 
+    const getImageUrl = (item) => {
+        if (item.image?.formats?.medium?.url) {
+            return `http://localhost:1337${item.image.formats.medium.url}`;
+        }
+
+        if (item.image?.formats?.small?.url) {
+            return `http://localhost:1337${item.image.formats.small.url}`;
+        }
+
+        if (item.image?.url) {
+            return item.image.url;
+        }
+
+        return "";
+    };
+
     return (
-
-
-
 
         <Box
             display={isCartOpen ? "block" : "none"}
@@ -77,13 +90,7 @@ const CartMenu = () => {
                                             alt={item.name}
                                             width="123"
                                             height="164"
-                                            src={
-                                                item.image?.formats?.medium?.url
-                                                    ? `http://localhost:1337${item.image.formats.medium.url}`
-                                                    : item.image?.url
-                                                        ? `http://localhost:1337${item.image.url}`
-                                                        : ""
-                                            }
+                                            src={getImageUrl(item)}
                                         />
                                     </Box>
 

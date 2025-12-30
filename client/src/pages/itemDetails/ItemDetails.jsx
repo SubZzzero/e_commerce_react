@@ -9,7 +9,7 @@ import { shades } from "../../theme";
 import { useParams } from "react-router-dom";
 import { addToCart } from "../../state/slices/cartSlice";
 import Item from "../../components/Item"
-
+import { STATIC_ITEMS } from "../../data/items";
 
 const ItemDetails = () => {
     const dispatch = useDispatch();
@@ -27,31 +27,35 @@ const ItemDetails = () => {
 
 
     async function getItem() {
-        const res = await fetch(
-            `http://localhost:1337/api/items/${documentId}?populate=image`,
-            { method: "GET" }
-        );
-
-        if (!res.ok) {
-            console.error("FETCH ERROR", res.status);
-            return;
+        try {
+            const res = await fetch(
+                `http://localhost:1337/api/items/${documentId}?populate=image`
+            );
+            if (!res.ok) throw new Error();
+            const json = await res.json();
+            setItem(json.data);
+        } catch {
+            const localItem = STATIC_ITEMS.find(
+                (i) => i.documentId === documentId
+            );
+            setItem(localItem);
         }
-
-        const json = await res.json();
-        setItem(json.data);
     }
 
 
     async function getItems() {
-        const items = await fetch(
-            `http://localhost:1337/api/items?populate=image`,
-            {
-                method: "GET",
-            }
-        );
-        const itemsJson = await items.json();
-        setItems(itemsJson.data);
+        try {
+            const res = await fetch(
+                "http://localhost:1337/api/items?populate=image"
+            );
+            if (!res.ok) throw new Error();
+            const json = await res.json();
+            setItems(json.data);
+        } catch {
+            setItems(STATIC_ITEMS);
+        }
     }
+
 
     useEffect(() => {
         getItem();
@@ -66,12 +70,13 @@ const ItemDetails = () => {
         setValue("description");
     }, [documentId]);
 
-    if (!item) return <Box m="80px">Loading…</Box>;
+    if (!item) return <Box backgroundColor="white" height={"100vh"}></Box>;
 
-    const imageUrl =
-        item.image?.formats?.medium?.url ||
-        item.image?.formats?.small?.url ||
-        item.image?.url;
+    const imageUrl = item.image?.formats?.medium?.url
+        ? `http://localhost:1337${item.image.formats.medium.url}`
+        : item.image?.formats?.small?.url
+            ? `http://localhost:1337${item.image.formats.small.url}`
+            : item.image?.url || "";
 
     return (
         <Box width="80%" m="80px auto">
@@ -86,9 +91,9 @@ const ItemDetails = () => {
             >
                 {/* LEFT — IMAGE */}
                 <Box flex="0 1 500px" display="flex" justifyContent="center">
-                    {item.image && (
+                    {imageUrl && (
                         <img
-                            src={`http://localhost:1337${imageUrl}`}
+                            src={imageUrl}
                             alt={item.name}
                             style={{
                                 maxWidth: "100%",

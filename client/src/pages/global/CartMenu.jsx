@@ -69,7 +69,7 @@ const CartMenu = () => {
                     {/* CART ITEMS */}
                     <Box>
                         {cart.map((item) => (
-                            <Box key={`${item.id}-${item.name}`}>
+                            <Box key={item.documentId}>
                                 <FlexBox padding="15px 0" gap="15px">
                                     {/* IMAGE */}
                                     <Box flex="0 0 123px">
@@ -77,7 +77,13 @@ const CartMenu = () => {
                                             alt={item.name}
                                             width="123"
                                             height="164"
-                                            src={`http://localhost:1337${item.image?.formats?.medium?.url}`}
+                                            src={
+                                                item.image?.formats?.medium?.url
+                                                    ? `http://localhost:1337${item.image.formats.medium.url}`
+                                                    : item.image?.url
+                                                        ? `http://localhost:1337${item.image.url}`
+                                                        : ""
+                                            }
                                         />
                                     </Box>
 
@@ -89,7 +95,7 @@ const CartMenu = () => {
                                             </Typography>
                                             <IconButton
                                                 onClick={() =>
-                                                    dispatch(removeFromCart({ id: item.id }))
+                                                    dispatch(removeFromCart({ documentId: item.documentId }))
                                                 }
                                             >
                                                 <CloseIcon />
@@ -97,7 +103,7 @@ const CartMenu = () => {
                                         </FlexBox>
 
                                         <Typography mb="10px">
-                                            {item.shortDescription}
+                                            {item?.shortDescription?.[0]?.children?.[0]?.text}
                                         </Typography>
 
                                         <FlexBox>
@@ -109,7 +115,7 @@ const CartMenu = () => {
                                             >
                                                 <IconButton
                                                     onClick={() =>
-                                                        dispatch(decreaseCount({ id: item.id }))
+                                                        dispatch(decreaseCount({ documentId: item.documentId }))
                                                     }
                                                 >
                                                     <RemoveCircleOutlineIcon />
@@ -119,7 +125,7 @@ const CartMenu = () => {
 
                                                 <IconButton
                                                     onClick={() =>
-                                                        dispatch(increaseCount({ id: item.id }))
+                                                        dispatch(increaseCount({ documentId: item.documentId }))
                                                     }
                                                 >
                                                     <AddIcon />

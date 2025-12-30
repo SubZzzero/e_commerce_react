@@ -27,7 +27,8 @@ const Navbar = () => {
             alignItems="center"
             width="100%"
             height="60px"
-            backgroundColor="rgba(255, 255, 255, 0.95)"
+            // backgroundColor="rgba(255, 255, 255, 0.95)"
+            backgroundColor="white"
             color="black"
             position="fixed"
             top="0"
@@ -52,13 +53,13 @@ const Navbar = () => {
 
                     }}
                 >
-                    <IconButton>
+                    {/* <IconButton>
                         <SearchIcon />
                     </IconButton>
 
                     <IconButton>
                         <PersonIcon />
-                    </IconButton>
+                    </IconButton> */}
 
                     <Badge color="secondary" badgeContent={cart.length} invisible={cart.length === 0} anchorOrigin={{
                         vertical: 'top',
@@ -69,9 +70,9 @@ const Navbar = () => {
                         </IconButton>
                     </Badge>
 
-                    <IconButton>
+                    {/* <IconButton>
                         <MenuIcon />
-                    </IconButton>
+                    </IconButton> */}
                 </Box>
 
             </Box>

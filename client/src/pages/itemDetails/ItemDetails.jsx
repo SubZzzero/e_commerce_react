@@ -23,9 +23,7 @@ const ItemDetails = () => {
         setValue(newValue)
     }
 
-    useEffect(() => {
-        setCount(1);
-    }, [documentId]);
+
 
 
     async function getItem() {
@@ -60,6 +58,14 @@ const ItemDetails = () => {
         getItems();
     }, [documentId]);
 
+    useEffect(() => {
+        setCount(1);
+    }, [documentId]);
+
+    useEffect(() => {
+        setValue("description");
+    }, [documentId]);
+
     if (!item) return <Box m="80px">Loading…</Box>;
 
     const imageUrl =
@@ -76,7 +82,7 @@ const ItemDetails = () => {
                 justifyContent="center"
                 alignItems="flex-start"
                 gap="40px"
-                marginTop={"130px"}
+                marginTop={"110px"}
             >
                 {/* LEFT — IMAGE */}
                 <Box flex="0 1 500px" display="flex" justifyContent="center">
@@ -201,7 +207,7 @@ const ItemDetails = () => {
                 >
                     {items
                         .filter((i) => i.documentId !== item.documentId)
-                        .slice(0, 4)
+                        .slice(0, 6)
                         .map((i) => (
                             <Item key={i.documentId} item={i} />
                         ))}

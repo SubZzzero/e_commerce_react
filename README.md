@@ -71,6 +71,13 @@ If you want to run the backend locally, please follow the official Strapi docume
 
 https://docs.strapi.io
 
+## Important Notice (CORS Error)
+
+CORS errors are expected and can be safely ignored.
+They are caused only by the missing backend and do not indicate a frontend issue.
+
+
+
 ## Data Model
 
 ```js
@@ -92,7 +99,4 @@ https://docs.strapi.io
 }
 
 
-##Important Notice (CORS Error)
 
-CORS errors are expected and can be safely ignored.
-They are caused only by the missing backend and do not indicate a frontend issue.

@@ -73,6 +73,7 @@ https://docs.strapi.io
 
 ## Data Model
 
+```js
 {
   id: number;
   documentId: string;
@@ -91,4 +92,7 @@ https://docs.strapi.io
 }
 
 
+##Important Notice (CORS Error)
 
+CORS errors are expected and can be safely ignored.
+They are caused only by the missing backend and do not indicate a frontend issue.

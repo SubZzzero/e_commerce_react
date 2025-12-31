@@ -2,11 +2,17 @@ import { Box, Typography } from "@mui/material";
 
 const Footer = () => {
     return (
-        <Box backgroundColor="black" padding="30px 0" sx={{ cursor: "default" }}>
+        <Box
+            marginTop={"auto"}
+            backgroundColor="black"
+            padding="30px 0"
+            sx={{ cursor: "default" }
+            }>
             <Box
                 width="80%"
                 margin="0 auto"
                 display="flex"
+
                 justifyContent="space-between"
                 flexWrap="wrap"
                 gap="20px"
@@ -57,7 +63,7 @@ const Footer = () => {
                     © {new Date().getFullYear()} Trendy Fashion. All rights reserved.
                 </Typography>
             </Box>
-        </Box>
+        </Box >
     );
 };
 

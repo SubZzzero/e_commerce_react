@@ -7,7 +7,7 @@ import Checkout from "./pages/checkout/Checkout";
 import Confirmation from "./pages/checkout/Confirmation";
 import CartMenu from "./pages/global/CartMenu";
 import Footer from "./pages/global/Footer";
-
+import { Box } from "@mui/material";
 
 
 function App() {
@@ -24,19 +24,25 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
+      <Box
+        minHeight="100vh"
+        display="flex"
+        flexDirection="column"
+      >
+        <Navbar />
 
-      <ScrollToTop />
-      <Routes>
+        <ScrollToTop />
+        <Routes>
 
-        <Route path="/" element={<Home />} />
-        <Route path="item/:documentId" element={<ItemDetails />} />
-        <Route path="checkout" element={<Checkout />} />
-        <Route path="checkout/success" element={<Confirmation />} />
+          <Route path="/" element={<Home />} />
+          <Route path="item/:documentId" element={<ItemDetails />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="checkout/success" element={<Confirmation />} />
 
-      </Routes>
-      <CartMenu></CartMenu>
-      <Footer></Footer>
+        </Routes>
+        <CartMenu></CartMenu>
+        <Footer></Footer>
+      </Box>
     </BrowserRouter >
   )
 

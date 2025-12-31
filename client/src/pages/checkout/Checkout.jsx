@@ -41,7 +41,7 @@ const Checkout = () => {
             display="flex"
             justifyContent="center"
             alignItems="center"
-            margin={"25px"}
+            margin={"60px"}
         >
             <Box width="80%" maxWidth="900px">
                 <Typography variant="h2" gutterBottom>
@@ -154,7 +154,7 @@ const Checkout = () => {
                                 />
                             </Box>
 
-                            <Box display="flex" justifyContent="flex-end" mt={3}>
+                            <Box display="flex" justifyContent={isNonMobile ? "flex-end" : "center"} mt={3}>
                                 <Button
                                     type="submit"
                                     variant="contained"
